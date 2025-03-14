@@ -85,5 +85,17 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.831" />
-    
+
+    <ImageView
+        android:id="@+id/myIcon"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:contentDescription="Ikon Saya"
+        android:src="@drawable/baseline_discount_24"
+        app:layout_constraintBottom_toTopOf="@+id/harganormal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
