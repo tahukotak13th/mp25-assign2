@@ -1,101 +1,80 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:id="@+id/main"
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <TextView
-        android:id="@+id/hasil"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text=""
-        android:textSize="20sp"
-        android:textColor="@color/black"
-        android:background="@color/white"
+        android:orientation="vertical"
+        android:padding="24dp"
+        android:gravity="center_horizontal"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.557" />
+        app:layout_constraintEnd_toEndOf="parent">
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputLayout"
-        android:layout_width="400dp"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="@+id/diskon"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/diskon"
-        app:layout_constraintVertical_bias="0.87">
+        <!-- ICON -->
+        <ImageView
+            android:id="@+id/myIcon"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/baseline_discount_24"
+            android:contentDescription="icon diskon"
+            android:layout_marginBottom="24dp"/>
 
-    </com.google.android.material.textfield.TextInputLayout>
+        <!-- HARGA NORMAL -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp">
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputLayout2"
-        android:layout_width="400dp"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="@+id/harganormal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/harganormal"
-        app:layout_constraintVertical_bias="0.657">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/harganormal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Masukkan Harga Normal"
+                android:inputType="number"/>
+        </com.google.android.material.textfield.TextInputLayout>
 
-    </com.google.android.material.textfield.TextInputLayout>
+        <!-- DISKON -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="24dp">
 
-    <Button
-        android:id="@+id/hitungdiskon"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hitung Diskon"
-        android:backgroundTint="@color/button_color"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/hasil"
-        app:layout_constraintVertical_bias="0.247" />
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/diskon"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Masukkan Diskon (%)"
+                android:inputType="number"/>
+        </com.google.android.material.textfield.TextInputLayout>
 
-    <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/harganormal"
-        android:layout_width="400dp"
-        android:layout_height="60dp"
-        android:background="@color/white"
-        android:hint="Masukkan Harga Normal"
-        app:layout_constraintBottom_toTopOf="@+id/diskon"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.454"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.771" />
+        <!-- BUTTON -->
+        <Button
+            android:id="@+id/hitungdiskon"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Hitung Diskon"
+            android:backgroundTint="@color/button_color"
+            android:layout_marginBottom="20dp"/>
 
-    <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/diskon"
-        android:layout_width="400dp"
-        android:layout_height="60dp"
-        android:background="@color/white"
-        android:hint="Masukkan Diskon"
-        app:layout_constraintBottom_toTopOf="@+id/hasil"
-        app:layout_constraintEnd_toEndOf="@+id/textInputLayout"
-        app:layout_constraintHorizontal_bias="0.545"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.831" />
+        <!-- HASIL -->
+        <TextView
+            android:id="@+id/hasil"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Hasil Diskon"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="@color/white"/>
 
-    <ImageView
-        android:id="@+id/myIcon"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:contentDescription="Ikon Saya"
-        android:src="@drawable/baseline_discount_24"
-        app:layout_constraintBottom_toTopOf="@+id/harganormal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
